@@ -1,12 +1,13 @@
 import requests
+from django.conf import settings
 
 
 class CallMeBot:
 
     def __init__(self):
-        self.__base_url = ''
-        self.__phone_number = ''
-        self.__api_key = ''
+        self.__base_url = settings.CALLMEBOT_API_URL
+        self.__phone_number = settings.CALLMEBOT_PHONE_NUMBER
+        self.__api_key = settings.CALLMEBOT_API_KEY
 
     def send_message(self, message):
         response = requests.get(
